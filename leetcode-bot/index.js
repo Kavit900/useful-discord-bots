@@ -1,5 +1,9 @@
 const fs = require('fs');
 var axios = require('axios');
+var CronJob = require('cron').CronJob;
+
+const leetcodeUtils = require('./utils/leetcode-utils.js')
+
 const {
 	REST
 } = require('@discordjs/rest');
@@ -99,6 +103,20 @@ const getAllLeetcodeQuestions = async () => {
   return response;
 }
 
+const leetcodeDailyQuestionJob = async() => {
+	var job = new CronJob('* * * * * *', function() {
+  	//console.log('You will see this message every second');
+		leetcodeUtils.leetcodeDailyQuestionUpdate(client);
+	}, null, true, 'America/Los_Angeles');
+
+	return job;
+}
+
+const startCronJobs = async() => {
+	var lcJob = leetcodeDailyQuestionJob();
+	lcJob.start;
+}
+
 const saveLeetCodeQuestions = async() => {
 	try {
 		let questions = JSON.stringify(await getAllLeetcodeQuestions());
@@ -109,7 +127,7 @@ const saveLeetCodeQuestions = async() => {
 				console.log(err.message);
 				return;
 			}
-			console.log('Leetcode questions save Successfully.');
+			console.log('Leetcode questions saved Successfully.');
 		});
 	} catch(error) {
 		if (error) console.error(error);
@@ -142,6 +160,7 @@ client.once('ready', () => {
 				console.log('Successfully registered application commands for development guild');
 			}
 			try {
+				 startCronJobs();
 			   if (!fs.existsSync('./data/leetcode.json')) {
 			      saveLeetCodeQuestions();
 						console.log("File doesn't exist");
