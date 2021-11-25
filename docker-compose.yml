@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+  leetcode-bot:
+    build: ./leetcode-bot
+    volumes:
+      - ./leetcode-bot:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "8080:8080"

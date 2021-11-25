@@ -1,0 +1,32 @@
+{
+  "name": "leetcode-bot",
+  "version": "1.0.0",
+  "description": "**Error** ``` TypeError [CLIENT_MISSING_INTENTS]: Valid intents must be provided for the Client.     at Client._validateOptions (/Users/kavit.mehta/work-career/discord-bots/leetcode-bot/node_modules/discord.js/src/client/Client.js:544:13)     at new Client (/Users/kavit.mehta/work-career/discord-bots/leetcode-bot/node_modules/discord.js/src/client/Client.js:73:10)     at Object.<anonymous> (/Users/kavit.mehta/work-career/discord-bots/leetcode-bot/main.js:3:13)     at Module._compile (node:internal/modules/cjs/loader:1095:14)     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1147:10)     at Module.load (node:internal/modules/cjs/loader:975:32)     at Function.Module._load (node:internal/modules/cjs/loader:822:12)     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)     at node:internal/main/run_main_module:17:47 {   [Symbol(code)]: 'CLIENT_MISSING_INTENTS' } ```",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ignore 'data/*' index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kavitmht@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.8.2",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "axios": "^0.24.0",
+    "discord-api-types": "^0.24.0",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^3.1.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "./data/leetcode.json"
+    ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
