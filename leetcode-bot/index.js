@@ -40,6 +40,8 @@ const TEST_GUILD_ID = process.env['TEST_GUILD_ID'];
 // Creating a collection for commands in client
 client.commands = new Collection();
 
+client.commands.set([]);
+
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	commands.push(command.data.toJSON());
@@ -107,7 +109,7 @@ const getAllLeetcodeQuestions = async () => {
 const leetcodeDailyQuestionJob = async() => {
 	var task = new CronJob('* * * * * *', function() {
   	console.log('You will see this message every second');
-		leetcodeUtils.leetcodeDailyQuestionUpdate(client);
+		//leetcodeUtils.leetcodeDailyQuestionUpdate(client);
 	}, null, true, 'America/Los_Angeles');
 
 	// const task = cron.schedule('3 7 * * *', () => {

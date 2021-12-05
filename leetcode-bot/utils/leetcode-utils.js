@@ -77,6 +77,8 @@ const leetcodeDailyQuestionUpdate = async(client) => {
   try {
     if (fs.existsSync('./data/leetcode-daily-question-guild-info.json')) {
       //file exists
+    } else {
+      return;
     }
   } catch(err) {
     console.log(err)
