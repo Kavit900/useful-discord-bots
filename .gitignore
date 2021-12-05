@@ -1,5 +1,4 @@
 node_modules/
 discordenv/
 npm-debug.log
-data/
 *.env
