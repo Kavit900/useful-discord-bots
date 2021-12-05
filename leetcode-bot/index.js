@@ -1,6 +1,7 @@
 const fs = require('fs');
 var axios = require('axios');
 var CronJob = require('cron').CronJob;
+const cron = require('node-cron');
 
 const leetcodeUtils = require('./utils/leetcode-utils.js')
 
@@ -33,7 +34,7 @@ const TOKEN = process.env['TOKEN'];
 
 
 // Edit your TEST_GUILD_ID here in the env file for development
-const TEST_GUILD_ID = envFILE.parsed['TEST_GUILD_ID'];
+const TEST_GUILD_ID = process.env['TEST_GUILD_ID'];
 
 
 // Creating a collection for commands in client
@@ -104,12 +105,16 @@ const getAllLeetcodeQuestions = async () => {
 }
 
 const leetcodeDailyQuestionJob = async() => {
-	var job = new CronJob('* * * * * *', function() {
-  	//console.log('You will see this message every second');
+	var task = new CronJob('* * * * * *', function() {
+  	console.log('You will see this message every second');
 		leetcodeUtils.leetcodeDailyQuestionUpdate(client);
 	}, null, true, 'America/Los_Angeles');
 
-	return job;
+	// const task = cron.schedule('3 7 * * *', () => {
+	//   leetcodeUtils.leetcodeDailyQuestionUpdate(client);
+	// });
+
+	return task;
 }
 
 const startCronJobs = async() => {
