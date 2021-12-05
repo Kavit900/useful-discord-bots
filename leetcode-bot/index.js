@@ -107,14 +107,15 @@ const getAllLeetcodeQuestions = async () => {
 }
 
 const leetcodeDailyQuestionJob = async() => {
-	var task = new CronJob('* * * * * *', function() {
-  	console.log('You will see this message every second');
-		//leetcodeUtils.leetcodeDailyQuestionUpdate(client);
-	}, null, true, 'America/Los_Angeles');
+	// var task = new CronJob('* * * * * *', function() {
+  // 	console.log('You will see this message every second');
+	// 	//leetcodeUtils.leetcodeDailyQuestionUpdate(client);
+	// }, null, true, 'America/Los_Angeles');
 
-	// const task = cron.schedule('3 7 * * *', () => {
-	//   leetcodeUtils.leetcodeDailyQuestionUpdate(client);
-	// });
+	const task = cron.schedule('* * * * *', () => {
+		console.log('You will see this message every second');
+	  //leetcodeUtils.leetcodeDailyQuestionUpdate(client);
+	});
 
 	return task;
 }
