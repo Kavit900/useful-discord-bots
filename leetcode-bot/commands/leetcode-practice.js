@@ -13,34 +13,12 @@ const createLeetcodeQuestionEmbed = (question) => {
   }
 
   const embed = {
-  	color: 0x0099ff,
-  	title: question.title,
-  	url: 'https://leetcode.com/problems/' + question.titleSlug,
-  	description: 'Some description here',
-  	thumbnail: {
-  		url: 'https://imgur.com/1yvjbXq',
-  	},
-  	fields: fields,
-  	image: {
-  		url: 'https://imgur.com/1yvjbXq',
-  	},
-  	timestamp: new Date(),
-  	footer: {
-  		text: 'Leetcode ' + question.difficultyLevel + ' question',
-  		icon_url: 'https://imgur.com/1yvjbXq',
-  	},
-  };
-
-  console.log(embed);
-
-
-  const exampleEmbed = {
     color: 0x0099ff,
   	title: question.title,
     url: 'https://leetcode.com/problems/' + question.titleSlug,
     description: 'Solve this ' + question.difficulty + ' level problem',
   	image: {
-  		url: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png',
+  		url: 'https://cdn.iconscout.com/icon/free/png-128/leetcode-3628885-3030025.png',
   	},
     fields: fields,
     timestamp: new Date(),
@@ -50,7 +28,6 @@ const createLeetcodeQuestionEmbed = (question) => {
     },
   };
 
-  return exampleEmbed;
   return embed;
 }
 

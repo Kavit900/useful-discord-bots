@@ -1,6 +1,22 @@
 const fs = require('fs');
 var axios = require('axios');
 
+const createDailyLeetcodeQuestionEmbed = (question) => {
+
+  const embed = {
+    color: 0x0099ff,
+  	title: question.question.title,
+    url: 'https://leetcode.com/problems/' + question.question.titleSlug,
+    description: 'Daily Leetcode Question',
+  	image: {
+  		url: 'https://cdn.iconscout.com/icon/free/png-128/leetcode-3628885-3030025.png',
+  	},
+    timestamp: new Date(),
+  };
+
+  return embed;
+}
+
 const leetcodeDailyQuestion = async() => {
 
   const date = new Date();
@@ -79,7 +95,10 @@ const leetcodeDailyQuestionUpdate = async(client) => {
 
       const channel = g.channels.cache.get(channelId);
 
-      channel.send(todaysQuestion.link);
+      // Send the embed regarding the message
+      channel.send({ embeds : [createDailyLeetcodeQuestionEmbed(todaysQuestion)] }).then(embedMessage => {
+          // Bot can react to the message using any emoji
+      });
 
       console.log(guilds[i]);
     }
