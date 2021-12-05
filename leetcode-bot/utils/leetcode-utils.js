@@ -73,6 +73,17 @@ const leetcodeDailyQuestion = async() => {
 }
 
 const leetcodeDailyQuestionUpdate = async(client) => {
+
+  try {
+    if (fs.existsSync('./data/leetcode-daily-question-guild-info.json')) {
+      //file exists
+    }
+  } catch(err) {
+    console.log(err)
+    return;
+  }
+
+
   // Read questions from leetcode json file
   let guildsInfo = fs.readFileSync('./data/leetcode-daily-question-guild-info.json');
 
