@@ -112,8 +112,8 @@ const leetcodeDailyQuestionJob = async() => {
 	// 	//leetcodeUtils.leetcodeDailyQuestionUpdate(client);
 	// }, null, true, 'America/Los_Angeles');
 
-	const task =  cron.schedule('0 7 * * *', () => {
-	   console.log('Running a job at 07:00 at America/New_York timezone');
+	const task =  cron.schedule('0 10 * * *', () => {
+	   console.log('Running a job at 10:00 at America/New_York timezone');
 		 leetcodeUtils.leetcodeDailyQuestionUpdate(client);
 	 }, {
 	   scheduled: true,
@@ -169,6 +169,7 @@ client.once('ready', () => {
 					},
 				);
 				console.log('Successfully registered application commands for development guild');
+				//leetcodeUtils.leetcodeDailyQuestionUpdate(client);
 			}
 			try {
 				 startCronJobs();

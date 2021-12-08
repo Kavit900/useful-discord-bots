@@ -97,6 +97,10 @@ const leetcodeDailyQuestionUpdate = async(client) => {
 
   let todaysQuestion = challenges[challenges.length - 1];
 
+  console.log("Todays question is:- ");
+
+  console.log(todaysQuestion);
+
   try {
     for(let i=0; i<guilds.length; i++) {
 
