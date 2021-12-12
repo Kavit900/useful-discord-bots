@@ -18,3 +18,6 @@
 
 -> Before pushing, set heroku stack to container - `heroku stack:set container`
 -> Push to heroku - `git push heroku main`
+
+
+#### To invite the Bot, use this url:- https://discord.com/api/oauth2/authorize?client_id=911733940199493652&permissions=414464510016&scope=bot%20applications.commands
