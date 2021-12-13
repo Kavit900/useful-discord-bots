@@ -112,7 +112,7 @@ const leetcodeDailyQuestionJob = async() => {
 	// 	//leetcodeUtils.leetcodeDailyQuestionUpdate(client);
 	// }, null, true, 'America/Los_Angeles');
 
-	const task =  cron.schedule('0 10 * * *', () => {
+	const task =  cron.schedule('0 17 * * *', () => {
 	   console.log('Running a job at 10:00 at America/New_York timezone');
 		 leetcodeUtils.leetcodeDailyQuestionUpdate(client);
 	 }, {
